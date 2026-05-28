@@ -621,33 +621,88 @@ footer{
 .reveal.d4{ animation-delay:.5s }
 @keyframes rev{ to{ opacity:1; transform:none } }
 
-/* ---------- responsive ---------- */
+/* ---------- responsive — cascade base (covers all tablets + phones) ---------- */
 @media (max-width: 1080px){
   .hero-grid{ grid-template-columns:1fr; gap:48px }
   .hero-art{ aspect-ratio: 5/4; max-width:560px; margin:0 auto }
   .steps{ grid-template-columns:1fr; gap:16px }
-  .values{ grid-template-columns:1fr 1fr; }
+  .values{ grid-template-columns:1fr 1fr }
   .value:nth-child(2){ border-right:0 }
   .value:nth-child(1), .value:nth-child(2){ border-bottom:1px solid var(--line) }
   .science{ grid-template-columns:1fr; gap:36px }
   .pricing-inner{ grid-template-columns:1fr; gap:32px }
   .waitlist{ grid-template-columns:1fr; gap:32px; padding:40px 28px }
-  .life-steps{ grid-template-columns: 1fr 1fr; gap:32px }
+  .life-steps{ grid-template-columns:1fr 1fr; gap:32px }
   .lifecycle{ padding:40px 28px }
-  .foot-grid{ grid-template-columns: 1fr 1fr }
+  .foot-grid{ grid-template-columns:1fr 1fr }
 }
-@media (max-width: 640px){
+
+/* ---------- iPad / large-tablet portrait (768–1080px) ---------- */
+@media (min-width:768px) and (max-width:1080px){
+  .container{ padding:0 40px }
+  .section-pad{ padding:96px 0 }
+  /* side-by-side hero — 1024px has ample room */
+  .hero{ padding:80px 0 64px }
+  .hero-grid{ grid-template-columns:1fr 1fr; gap:44px }
+  .hero-art{ aspect-ratio:4/5; max-width:none; margin:0 }
+  /* two-column steps look great at this width */
+  .steps{ grid-template-columns:1fr 1fr; gap:20px }
+  /* four lifecycle steps still read clearly */
+  .life-steps{ grid-template-columns:repeat(4,1fr); gap:16px }
+  .lifecycle{ padding:48px 44px 56px }
+  /* restore four-column value props */
+  .values{ grid-template-columns:repeat(4,1fr) }
+  .value:nth-child(2){ border-right:1px solid var(--line) }
+  .value:nth-child(1), .value:nth-child(2){ border-bottom:0 }
+  /* restore two-column science block */
+  .science{ grid-template-columns:1fr 1fr; gap:44px }
+  /* restore two-column pricing */
+  .pricing-inner{ grid-template-columns:1fr 1fr; gap:44px }
+  .pricing{ padding:56px 48px }
+  /* restore two-column waitlist */
+  .waitlist{ grid-template-columns:1fr 1fr; gap:44px; padding:56px 44px }
+  /* full four-column footer */
+  .foot-grid{ grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px }
+  /* tighten nav for tablet */
+  .nav-inner{ gap:16px }
+}
+
+/* ---------- phone (≤640px) ---------- */
+@media (max-width:640px){
   .container{ padding:0 20px }
-  .section-pad{ padding:80px 0 }
+  .section-pad{ padding:72px 0 }
+  .nav-inner{ height:60px }
   .nav-links a:not(.cta){ display:none }
+  .hero{ padding:52px 0 40px }
+  .hero h1{ font-size:46px; line-height:1.05 }
+  .hero .deck{ font-size:16.5px }
+  .hero-art{ border-radius:var(--radius); aspect-ratio:3/2 }
+  .hero-card{ min-width:0; padding:13px 15px }
+  .hero-card .val{ font-size:24px }
+  .hero-card.tl{ top:14px; left:14px }
+  .hero-card.br{ right:14px; bottom:16px }
+  .hero-actions{ gap:10px }
+  .hero-trust{ gap:14px }
+  .shead h2{ font-size:clamp(32px,9vw,46px) }
+  .lifecycle{ padding:28px 20px 32px }
+  .life-steps{ grid-template-columns:1fr 1fr; gap:20px }
+  .life-step h4{ font-size:21px }
+  .step{ padding:24px }
+  .step .num{ font-size:40px }
+  .step .ill{ height:148px }
   .values{ grid-template-columns:1fr }
   .value{ border-right:0; border-bottom:1px solid var(--line) }
   .value:last-child{ border-bottom:0 }
-  .pricing{ padding:40px 28px }
+  .stat .v{ font-size:44px }
+  .pricing{ padding:36px 24px }
+  .price-card .amt{ font-size:60px }
+  .waitlist{ padding:36px 24px }
   .row2{ grid-template-columns:1fr }
-  .foot-grid{ grid-template-columns:1fr; gap:32px }
+  .faq summary{ font-size:19px }
+  footer{ margin-top:56px; padding:44px 0 28px }
+  .foot-coat{ font-size:28px }
+  .foot-grid{ grid-template-columns:1fr; gap:28px }
   .foot-bottom{ flex-direction:column; gap:8px }
-  .hero h1{ font-size: 56px }
 }
 </style>
 </head>
