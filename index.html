@@ -581,6 +581,38 @@ section{ position:relative }
   margin:14px 0 0; color:var(--ink-2); font-size:15.5px; max-width:62ch;
 }
 
+/* ---------- what it addresses ---------- */
+.conditions{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.cond-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px 28px 32px;
+  display:flex; flex-direction:column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.cond-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-card) }
+.cond-icn{
+  width:40px; height:40px; border-radius:12px;
+  background:var(--sage-soft); color:var(--forest);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px; flex-shrink:0;
+}
+.cond-card h4{
+  font-family:"Instrument Serif",serif;
+  font-weight:400; font-size:24px; line-height:1.15;
+  letter-spacing:-.01em; margin:0 0 10px; color:var(--ink);
+}
+.cond-card p{ margin:0; font-size:14.5px; color:var(--ink-2); line-height:1.6 }
+.cond-tag{
+  display:inline-block; margin-top:16px;
+  font-size:11px; font-weight:500; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--moss);
+}
+
 /* ---------- footer ---------- */
 footer{
   background: var(--cream-2);
@@ -635,6 +667,7 @@ footer{
   .life-steps{ grid-template-columns:1fr 1fr; gap:32px }
   .lifecycle{ padding:40px 28px }
   .foot-grid{ grid-template-columns:1fr 1fr }
+  .conditions{ grid-template-columns:1fr 1fr }
 }
 
 /* ---------- iPad / large-tablet portrait (768–1080px) ---------- */
@@ -706,6 +739,8 @@ footer{
   .foot-coat{ font-size:28px }
   .foot-grid{ grid-template-columns:1fr; gap:28px }
   .foot-bottom{ flex-direction:column; gap:8px }
+  .conditions{ grid-template-columns:1fr }
+  .cond-card{ padding:22px 20px 26px }
 }
 </style>
 </head>
@@ -1071,6 +1106,97 @@ footer{
           <div class="k">Weekly feedback — that's all we ask</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT ADDRESSES -->
+<section class="section-pad">
+  <div class="container">
+    <div class="shead">
+      <span class="eyebrow">What it addresses</span>
+      <h2>Six things that <em>hurt</em>. One program for all of them.</h2>
+      <p>Every condition here traces back to the same root cause — chronic mis-loading. A few millimetres off, in the same direction, compounding with every step. Correct the load; the rest follows.</p>
+    </div>
+    <div class="conditions">
+
+      <div class="cond-card">
+        <div class="cond-icn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20c0-6 4-11 8-11s8 5 8 11"/>
+            <circle cx="7" cy="20" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h4>Heel pain</h4>
+        <p>Concentrated impact at the calcaneus with every footfall. Adjusting strike angle and cushioning distribution reduces the peak load that keeps inflammation cycling.</p>
+        <span class="cond-tag">Plantar fasciitis · heel spurs</span>
+      </div>
+
+      <div class="cond-card">
+        <div class="cond-icn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17 Q 12 5 21 17"/>
+            <line x1="12" y1="10" x2="12" y2="17" stroke-opacity=".45"/>
+          </svg>
+        </div>
+        <h4>Arch fatigue</h4>
+        <p>The longitudinal arch collapses gradually under load, pulling structures it was never meant to carry. Progressive support — not rigid over-correction — lets it recover and strengthen.</p>
+        <span class="cond-tag">Flat feet · fallen arches</span>
+      </div>
+
+      <div class="cond-card">
+        <div class="cond-icn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v8"/>
+            <path d="M8 16c0-2.5 8-2.5 8 0"/>
+            <path d="M6 20c1-2 10-2 12 0"/>
+          </svg>
+        </div>
+        <h4>Overpronation</h4>
+        <p>When the ankle rolls inward on landing, every joint above it compensates. Medial posting in the insole gently corrects the angle — quarter by quarter, not all at once.</p>
+        <span class="cond-tag">Inward roll · ankle strain</span>
+      </div>
+
+      <div class="cond-card">
+        <div class="cond-icn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <ellipse cx="12" cy="18" rx="7" ry="3"/>
+            <circle cx="9"  cy="17" r="1" fill="currentColor" stroke="none" opacity=".6"/>
+            <circle cx="12" cy="16" r="1" fill="currentColor" stroke="none" opacity=".9"/>
+            <circle cx="15" cy="17" r="1" fill="currentColor" stroke="none" opacity=".6"/>
+          </svg>
+        </div>
+        <h4>Forefoot pressure</h4>
+        <p>Metatarsal overload on toe-off concentrates stress across a small area of bone and soft tissue. Redistributing force across the full foot bed takes the edge off with every step.</p>
+        <span class="cond-tag">Ball of foot pain · metatarsalgia</span>
+      </div>
+
+      <div class="cond-card">
+        <div class="cond-icn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c0 4-3 6-3 10s3 6 3 8"/>
+            <path d="M9 13h6"/>
+            <path d="M10 17h4"/>
+          </svg>
+        </div>
+        <h4>Hip &amp; lower back tension</h4>
+        <p>Gait misalignment at the foot transfers stress up the kinetic chain — knees, hips, lumbar spine. Correcting the foundation reduces the compensation pattern above it.</p>
+        <span class="cond-tag">SI joint · lower back · knee pain</span>
+      </div>
+
+      <div class="cond-card">
+        <div class="cond-icn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 3 Q 10 12 12 20"/>
+            <path d="M14 3 Q 14 12 12 20"/>
+            <path d="M8 20 Q 12 23 16 20"/>
+          </svg>
+        </div>
+        <h4>Achilles &amp; calf strain</h4>
+        <p>Heel drop and strike angle place continuous tensile load on the Achilles tendon. Small, targeted corrections in heel pitch reduce that load without disrupting the rest of your stride.</p>
+        <span class="cond-tag">Achilles tendonitis · calf tightness</span>
+      </div>
+
     </div>
   </div>
 </section>
