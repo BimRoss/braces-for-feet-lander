@@ -645,6 +645,136 @@ footer{
   font-size:13px; color:var(--muted);
 }
 
+/* ---------- pitch banner ---------- */
+.pitch-banner{
+  background: var(--forest);
+  color: var(--cream);
+  padding: 11px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .05em;
+}
+.pitch-banner em{ font-style:italic; color: var(--clay-soft) }
+
+/* ---------- feasibility ---------- */
+.feasibility{
+  display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:start;
+}
+.feasibility-text h2{
+  font-family:"Instrument Serif", serif;
+  font-weight:400;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height:1.08; letter-spacing:-.015em;
+  margin:14px 0 18px;
+}
+.feasibility-text h2 em{ font-style:italic; color:var(--forest-2) }
+.feasibility-text p{ color:var(--ink-2); font-size:17px; max-width:50ch; margin:0 0 14px }
+.verdict-grid{
+  display:grid; grid-template-columns:1fr;
+  gap:1px; background:var(--line);
+  border-radius:var(--radius); overflow:hidden;
+  box-shadow:var(--shadow-card);
+}
+.verdict-row{
+  background:var(--paper);
+  padding:20px 24px;
+  display:flex; align-items:flex-start; gap:16px;
+}
+.verdict-icon{
+  width:28px; height:28px; border-radius:50%;
+  flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700;
+  margin-top:3px;
+}
+.verdict-icon.yes{ background:var(--sage-soft); color:var(--forest) }
+.verdict-icon.open{ background:var(--clay-soft); color:#7d3a1d }
+.verdict-label{
+  font-family:"Instrument Serif",serif; font-size:19px;
+  font-weight:400; margin:0 0 4px; line-height:1.2; color:var(--ink);
+}
+.verdict-note{ font-size:13.5px; color:var(--ink-2); margin:0; line-height:1.5 }
+
+/* ---------- certification ---------- */
+.cert-cards{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.cert-card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:32px;
+  display:flex; flex-direction:column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.cert-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-card) }
+.cert-card.highlighted{
+  border-color:var(--forest);
+  background: linear-gradient(180deg, var(--sage-soft) 0%, var(--paper) 60%);
+}
+.cert-label{
+  display:inline-block; margin-bottom:16px;
+  font-size:11px; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase;
+  padding:4px 10px; border-radius:999px;
+}
+.cert-label.easy{ background:var(--sage-soft); color:var(--forest) }
+.cert-label.medium{ background:var(--clay-soft); color:#7d3a1d }
+.cert-label.hard{ background:#f7e0e0; color:#8b1a1a }
+.cert-card h4{
+  font-family:"Instrument Serif",serif;
+  font-weight:400; font-size:26px; line-height:1.15;
+  letter-spacing:-.01em; margin:0 0 10px; color:var(--ink);
+}
+.cert-card p{ margin:0 0 16px; font-size:14.5px; color:var(--ink-2); line-height:1.6; flex:1 }
+.cert-meta{ border-top:1px solid var(--line); padding-top:14px; margin-top:auto }
+.cert-meta .kv{
+  display:flex; justify-content:space-between;
+  font-size:13px; margin-bottom:6px;
+}
+.cert-meta .kv .k{ color:var(--muted) }
+.cert-meta .kv .v{ font-weight:600; color:var(--ink) }
+
+/* ---------- pitch response ---------- */
+.pitch-response{
+  background: var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:64px 56px;
+  display:grid; grid-template-columns: 1fr 1fr; gap:64px; align-items:start;
+  box-shadow: var(--shadow-soft);
+}
+.pitch-response h2{
+  font-family:"Instrument Serif", serif;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height:1.05; letter-spacing:-.015em;
+  margin: 14px 0 16px;
+  font-weight:400;
+}
+.pitch-response h2 em{ font-style:italic; color:var(--clay) }
+.pitch-response .deck{
+  color:var(--ink-2); font-size:17px; max-width:42ch; margin:0 0 24px;
+}
+.field textarea{
+  width:100%;
+  background:var(--cream);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 16px;
+  font-family:inherit;
+  font-size:15.5px; color:var(--ink);
+  line-height:1.5;
+  resize:vertical; min-height:110px;
+  transition: border-color .2s ease, background .2s ease;
+}
+.field textarea:focus{
+  outline:none;
+  border-color:var(--forest);
+  background:var(--paper);
+}
+.field textarea::placeholder{ color:#a8b1ac }
+
 /* ---------- fade-in helpers ---------- */
 .reveal{ opacity:0; transform:translateY(12px); animation: rev .8s ease forwards }
 .reveal.d1{ animation-delay:.05s }
@@ -655,6 +785,9 @@ footer{
 
 /* ---------- responsive — cascade base (covers all tablets + phones) ---------- */
 @media (max-width: 1080px){
+  .feasibility{ grid-template-columns:1fr; gap:36px }
+  .cert-cards{ grid-template-columns:1fr }
+  .pitch-response{ grid-template-columns:1fr; gap:32px; padding:40px 28px }
   .hero-grid{ grid-template-columns:1fr; gap:48px }
   .hero-art{ aspect-ratio: 5/4; max-width:560px; margin:0 auto }
   .steps{ grid-template-columns:1fr 1fr; gap:16px }
@@ -672,6 +805,9 @@ footer{
 
 /* ---------- iPad / large-tablet portrait (768–1080px) ---------- */
 @media (min-width:768px) and (max-width:1080px){
+  .feasibility{ grid-template-columns:1fr 1fr; gap:44px }
+  .cert-cards{ grid-template-columns:repeat(3,1fr) }
+  .pitch-response{ grid-template-columns:1fr 1fr; gap:44px; padding:56px 44px }
   .container{ padding:0 40px }
   .section-pad{ padding:96px 0 }
   /* side-by-side hero — 1024px has ample room */
@@ -702,6 +838,7 @@ footer{
 
 /* ---------- phone (≤640px) ---------- */
 @media (max-width:640px){
+  .pitch-response{ padding:36px 24px }
   .container{ padding:0 20px }
   .section-pad{ padding:72px 0 }
   .nav-inner{ height:60px }
@@ -747,6 +884,11 @@ footer{
 
 <body>
 
+<!-- PITCH BANNER -->
+<div class="pitch-banner">
+  Concept pitch · Expert review &nbsp;·&nbsp; <em>Is this functionally viable — and what does the path to podiatrist approval look like?</em>
+</div>
+
 <!-- NAV -->
 <header class="nav">
   <div class="container nav-inner">
@@ -756,9 +898,9 @@ footer{
     </a>
     <nav class="nav-links">
       <a href="#how">How it works</a>
-      <a href="#lifecycle">The journey</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#waitlist" class="cta">Join the waitlist</a>
+      <a href="#feasibility">Feasibility</a>
+      <a href="#certification">Certification</a>
+      <a href="#feedback" class="cta">Give us your take</a>
     </nav>
   </div>
 </header>
@@ -851,6 +993,64 @@ footer{
     <span>Closer with every pair</span><span class="dot"></span>
   </div>
 </div>
+
+<!-- FEASIBILITY — honest concept audit -->
+<section class="section-pad" style="background:var(--paper)" id="feasibility">
+  <div class="container">
+    <div class="shead">
+      <span class="eyebrow">Concept validation</span>
+      <h2>What we <em>know</em>. What we're still testing.</h2>
+      <p>This is a hypothesis, not a finished product. Here's our honest read — proven components, and the open questions we need expert input on.</p>
+    </div>
+    <div class="feasibility">
+      <div class="feasibility-text">
+        <span class="eyebrow">The core mechanic</span>
+        <h2>Does iterative, feedback-driven refinement <em>actually work?</em></h2>
+        <p>LiDAR scanning and CNC milling are proven. The novel part — a feedback loop that improves each insole quarter over quarter, converging on optimal load distribution for a specific foot — is the hypothesis we're here to validate.</p>
+        <p>The question we're putting to experts: is a 13-week correction cadence physiologically meaningful? Can an adaptive model genuinely converge, or is a single well-made custom orthotic simply the better answer?</p>
+        <p>We don't know yet. That's why we're asking.</p>
+        <p style="margin-top:22px"><a href="#feedback" class="btn primary" style="display:inline-flex">Tell us what you think <span class="arr">→</span></a></p>
+      </div>
+      <div class="verdict-grid">
+        <div class="verdict-row">
+          <div class="verdict-icon yes">✓</div>
+          <div>
+            <p class="verdict-label">Phone scan accuracy</p>
+            <p class="verdict-note">iPhone LiDAR achieves ±1–2 mm mesh resolution for static foot geometry. ARKit documentation and third-party trials confirm this is viable. Established technology.</p>
+          </div>
+        </div>
+        <div class="verdict-row">
+          <div class="verdict-icon yes">✓</div>
+          <div>
+            <p class="verdict-label">CNC milling from scan data</p>
+            <p class="verdict-note">CAD-to-mill workflows for custom orthotics are well-established in prosthetics and dental. Multi-density foam routing is standard. The toolchain exists today.</p>
+          </div>
+        </div>
+        <div class="verdict-row">
+          <div class="verdict-icon yes">✓</div>
+          <div>
+            <p class="verdict-label">Quarterly replacement cadence</p>
+            <p class="verdict-note">Orthotic wear patterns and material fatigue align with 3-month replacement windows used in clinical practice. Nothing unusual here — this is existing convention.</p>
+          </div>
+        </div>
+        <div class="verdict-row">
+          <div class="verdict-icon open">?</div>
+          <div>
+            <p class="verdict-label">Feedback-driven convergence</p>
+            <p class="verdict-note">The hypothesis: subjective comfort data + observed gait change over multiple quarters yields progressively better corrections. This is the novel claim. No controlled study yet — this is what we're asking you to assess.</p>
+          </div>
+        </div>
+        <div class="verdict-row">
+          <div class="verdict-icon open">?</div>
+          <div>
+            <p class="verdict-label">Static scan → dynamic correction</p>
+            <p class="verdict-note">LiDAR captures shape, not gait. Does foot geometry alone carry enough signal for meaningful orthotic correction — or do we need pressure plates, stride sensors, or gait video? Open question.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- LIFECYCLE — the centerpiece -->
 <section class="section-pad" id="lifecycle">
@@ -1201,6 +1401,49 @@ footer{
   </div>
 </section>
 
+<!-- CERTIFICATION PATH -->
+<section class="section-pad" style="background:var(--cream-2)" id="certification">
+  <div class="container">
+    <div class="shead">
+      <span class="eyebrow">Professional credibility</span>
+      <h2>Three paths to <em>podiatrist approval</em>.</h2>
+      <p>From a low-friction advisory endorsement to full FDA clearance — here's what each path costs, how long it takes, and what it unlocks in terms of marketing language and clinical credibility.</p>
+    </div>
+    <div class="cert-cards">
+      <div class="cert-card">
+        <span class="cert-label easy">Current path</span>
+        <h4>Wellness positioning</h4>
+        <p>Market as a comfort and wellness subscription — not a treatment for any medical condition. No FDA filing is required for OTC foot orthotics sold as comfort devices under current guidance.</p>
+        <div class="cert-meta">
+          <div class="kv"><span class="k">Timeline</span><span class="v">Today</span></div>
+          <div class="kv"><span class="k">Cost</span><span class="v">$0</span></div>
+          <div class="kv"><span class="k">Claim ceiling</span><span class="v">Comfort &amp; wellbeing only</span></div>
+        </div>
+      </div>
+      <div class="cert-card highlighted">
+        <span class="cert-label medium">Recommended next step</span>
+        <h4>"Podiatrist Reviewed"</h4>
+        <p>Recruit a 3–5 person DPM advisory board. Run a 90-day outcomes study with 40–60 participants. Publish summary results. The endorsement is real and the marketing language earns it — without FDA involvement.</p>
+        <div class="cert-meta">
+          <div class="kv"><span class="k">Timeline</span><span class="v">6–9 months</span></div>
+          <div class="kv"><span class="k">Cost</span><span class="v">$20K–$60K</span></div>
+          <div class="kv"><span class="k">Claim ceiling</span><span class="v">DPM-endorsed, outcomes-backed</span></div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <span class="cert-label hard">Long game</span>
+        <h4>FDA Class II (510k)</h4>
+        <p>File for clearance as a custom orthotic device under 21 CFR 890.3860. Requires clinical data, biocompatibility testing, and substantial equivalence to a cleared predicate device. Full "treat and correct" language unlocked.</p>
+        <div class="cert-meta">
+          <div class="kv"><span class="k">Timeline</span><span class="v">18–36 months</span></div>
+          <div class="kv"><span class="k">Cost</span><span class="v">$80K–$250K</span></div>
+          <div class="kv"><span class="k">Claim ceiling</span><span class="v">Treat, diagnose, correct</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="section-pad" id="pricing">
   <div class="container">
@@ -1228,52 +1471,53 @@ footer{
   </div>
 </section>
 
-<!-- WAITLIST -->
-<section class="section-pad" id="waitlist">
+<!-- EXPERT FEEDBACK -->
+<section class="section-pad" id="feedback">
   <div class="container">
-    <div class="waitlist">
+    <div class="pitch-response">
       <div>
-        <span class="eyebrow">Cycle 01 · Autumn 2026</span>
-        <h2>Start the <em>walk</em> back to comfort.</h2>
-        <p class="deck">Founding members lock the $74 quarterly rate for life, get the first scan kit, and help shape the model on a foot that isn't average.</p>
-        <span class="wcount"><span class="pulse"></span><span id="counter">247 of 1,000 members enrolled</span></span>
+        <span class="eyebrow">Expert review</span>
+        <h2>We need your <em>read</em>.</h2>
+        <p class="deck">Two honest questions. You know this space — we want the unfiltered take, not validation. If the concept doesn't work clinically, we need to know before we build it.</p>
+        <div style="margin-top:28px; display:flex; flex-direction:column; gap:18px">
+          <div style="display:flex; gap:14px; align-items:flex-start">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--sage-soft);color:var(--forest);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;margin-top:2px">1</div>
+            <div>
+              <p style="margin:0 0 4px;font-family:'Instrument Serif',serif;font-size:19px;color:var(--ink);line-height:1.2">Does the concept genuinely work?</p>
+              <p style="margin:0;font-size:14px;color:var(--ink-2)">Is iterative phone-scan + milled orthotic refinement a clinically meaningful intervention, or is it a nice story around a commodity product?</p>
+            </div>
+          </div>
+          <div style="display:flex; gap:14px; align-items:flex-start">
+            <div style="width:32px;height:32px;border-radius:50%;background:var(--sage-soft);color:var(--forest);display:flex;align-items:center;justify-content:circle;font-weight:700;font-size:14px;flex-shrink:0;margin-top:2px;justify-content:center">2</div>
+            <div>
+              <p style="margin:0 0 4px;font-family:'Instrument Serif',serif;font-size:19px;color:var(--ink);line-height:1.2">What's the realistic path to credibility?</p>
+              <p style="margin:0;font-size:14px;color:var(--ink-2)">Advisory board endorsement, a small outcomes study, or do we need to bite the bullet on 510(k)? What would you need to see to put your name on it?</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <form class="form" onsubmit="event.preventDefault(); const b=this.querySelector('.submit'); b.firstElementChild.textContent='You\'re on the list — check your inbox'; b.style.background='var(--moss)'; b.lastElementChild.style.display='none';">
+      <form class="form" onsubmit="event.preventDefault(); const b=this.querySelector('.submit'); b.firstElementChild.textContent='Got it — thank you. We\'ll follow up.'; b.style.background='var(--moss)'; b.lastElementChild.style.display='none';">
         <div class="field">
           <label for="name">Your name</label>
-          <input id="name" type="text" placeholder="As it should appear inside the insole" />
+          <input id="name" type="text" placeholder="How you'd like us to address you" />
         </div>
         <div class="field">
           <label for="email">Email</label>
           <input id="email" type="email" required placeholder="you@somewhere.com" />
         </div>
-        <div class="row2">
-          <div class="field">
-            <label for="size">Shoe size</label>
-            <select id="size">
-              <option>US 7–8 / EU 38–40</option>
-              <option>US 9–10 / EU 41–43</option>
-              <option selected>US 11–12 / EU 44–46</option>
-              <option>US 13+ / EU 47+</option>
-              <option>Not sure</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="why">What hurts most?</label>
-            <select id="why">
-              <option>Arch fatigue</option>
-              <option>Heel strike</option>
-              <option>Bunion pressure</option>
-              <option>Hip or lower back</option>
-              <option>Nothing — curious</option>
-            </select>
-          </div>
+        <div class="field">
+          <label for="feasibility-take">Does the concept work? Your honest take.</label>
+          <textarea id="feasibility-take" placeholder="What works, what doesn't, what's missing from the model…"></textarea>
+        </div>
+        <div class="field">
+          <label for="cert-take">Path to podiatrist approval — your read.</label>
+          <textarea id="cert-take" placeholder="Advisory board, outcomes study, 510(k) — what's the right sequence?"></textarea>
         </div>
         <button class="submit" type="submit">
-          <span>Reserve my spot</span>
+          <span>Send your assessment</span>
           <span>→</span>
         </button>
-        <p class="fine">A wellness program, not a medical device. No FDA filings, no clinical claims. We'll send two short comfort prompts a week once you're enrolled — opt out any time.</p>
+        <p class="fine">We're asking for your honest professional opinion, not a polished report. A few sentences is fine. We'll follow up directly.</p>
       </form>
     </div>
   </div>
@@ -1328,8 +1572,9 @@ footer{
         <ul>
           <li><a href="#how">How it works</a></li>
           <li><a href="#lifecycle">The journey</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#waitlist">Join the waitlist</a></li>
+          <li><a href="#feasibility">Feasibility</a></li>
+          <li><a href="#certification">Certification path</a></li>
+          <li><a href="#feedback">Expert review</a></li>
         </ul>
       </div>
       <div>
